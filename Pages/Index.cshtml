@@ -1,0 +1,42 @@
+﻿@page
+@model IdentityPortal.Pages.IndexModel
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>Identity Portal</h1>
+        <p class="hero-subtitle">
+            A professional ASP.NET Core 10 authentication system with
+            <strong>TOTP-based Two-Factor Authentication</strong>
+        </p>
+        <div class="hero-actions">
+            <a asp-page="/Account/Register" class="btn btn-primary btn-lg">
+                <span>Create Account</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a asp-page="/Account/Login" class="btn btn-secondary btn-lg">
+                Sign In
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="feature-card">
+        <div class="feature-icon"><i data-lucide="shield"></i></div>
+        <h3>TOTP 2FA</h3>
+        <p>Authenticator app support via industry-standard Time-based One-Time Passwords</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon"><i data-lucide="lock"></i></div>
+        <h3>Account Lockout</h3>
+        <p>Automatic lockout after 5 failed attempts with 5-minute cooldown</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon"><i data-lucide="blocks"></i></div>
+        <h3>.NET 10 LTS</h3>
+        <p>Built on the latest ASP.NET Core with Identity, EF Core &amp; SQL Server</p>
+    </div>
+</section>
