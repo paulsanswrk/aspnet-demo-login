@@ -1,0 +1,47 @@
+@page
+@model IdentityPortal.Pages.Account.EnableAuthenticatorModel
+@{
+    ViewData["Title"] = "Set Up Authenticator";
+}
+
+<div class="auth-container">
+    <div class="auth-card auth-card-wide">
+        <div class="auth-header">
+            <div class="auth-icon"><i data-lucide="smartphone"></i></div>
+            <h1>Set Up Authenticator</h1>
+            <p>Scan the QR code below with your authenticator app (Google Authenticator, Microsoft Authenticator, etc.)</p>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.StatusMessage))
+        {
+            <div class="alert alert-info">@Model.StatusMessage</div>
+        }
+
+        <div class="setup-content">
+            <div class="qr-section">
+                <div class="qr-container">
+                    <img src="data:image/png;base64,@Model.QrCodeBase64" alt="QR Code" class="qr-code" />
+                </div>
+                <div class="manual-key">
+                    <p class="manual-key-label">Can't scan? Enter this key manually:</p>
+                    <code class="manual-key-value">@Model.SharedKey</code>
+                </div>
+            </div>
+
+            <form method="post" class="auth-form verify-form">
+                <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+                <div class="form-group">
+                    <label asp-for="Input.Code" class="form-label">Verification Code</label>
+                    <input asp-for="Input.Code" class="form-input code-input"
+                           autocomplete="off" inputmode="numeric" maxlength="6"
+                           placeholder="000000" autofocus />
+                    <span asp-validation-for="Input.Code" class="form-validation"></span>
+                    <p class="form-hint">Enter the 6-digit code from your authenticator app to verify setup</p>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Verify &amp; Enable 2FA</button>
+            </form>
+        </div>
+    </div>
+</div>
