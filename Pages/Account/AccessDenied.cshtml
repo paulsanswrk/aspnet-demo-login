@@ -1,0 +1,17 @@
+@page
+@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <div class="auth-icon"><i data-lucide="shield-alert"></i></div>
+            <h1>Access Denied</h1>
+            <p>You must complete Two-Factor Authentication setup to access this page.</p>
+        </div>
+        <div class="auth-footer" style="margin-top: 1.5rem;">
+            <a asp-page="/Account/EnableAuthenticator" class="btn btn-primary btn-block">Set Up 2FA Now</a>
+        </div>
+    </div>
+</div>

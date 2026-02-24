@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] — Identity Portal</title>
+    <meta name="description" content="ASP.NET Core 10 Identity Portal with TOTP Two-Factor Authentication" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a asp-page="/Index" class="nav-brand">
+                <img src="~/images/logo-full.png" alt="Identity Portal" class="nav-logo" asp-append-version="true" />
+            </a>
+            <div class="nav-links">
+                <a asp-page="/Account/Login" class="nav-link">Sign In</a>
+                <a asp-page="/Account/Register" class="nav-link nav-link-primary">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <span>&copy; @DateTime.Now.Year Paul S</span>
+            <span class="footer-divider">•</span>
+            <span>ASP.NET Core 10 &middot; TOTP 2FA &middot; SQL Server</span>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

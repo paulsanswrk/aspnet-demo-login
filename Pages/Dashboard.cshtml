@@ -1,0 +1,69 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@model IdentityPortal.Pages.DashboardModel
+@attribute [Authorize(Policy = "Require2FA")]
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1><i data-lucide="sparkles" style="color:var(--accent-secondary);margin-right:8px;vertical-align:middle;"></i> Welcome to the Dashboard</h1>
+        <p>You have successfully authenticated with Two-Factor Authentication</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="info-card">
+            <div class="info-card-icon"><i data-lucide="user"></i></div>
+            <div class="info-card-content">
+                <h3>Profile</h3>
+                <div class="info-row">
+                    <span class="info-label">Name</span>
+                    <span class="info-value">@Model.FullName</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Email</span>
+                    <span class="info-value">@Model.Email</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="info-card-icon"><i data-lucide="shield-check"></i></div>
+            <div class="info-card-content">
+                <h3>Security</h3>
+                <div class="info-row">
+                    <span class="info-label">2FA Status</span>
+                    <span class="info-value badge badge-success"><i data-lucide="check" style="width:12px;height:12px;margin-right:4px;vertical-align:middle;"></i>Active</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Joined</span>
+                    <span class="info-value">@Model.CreatedAt.ToString("dd MMM yyyy HH:mm")</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="info-card-icon"><i data-lucide="activity"></i></div>
+            <div class="info-card-content">
+                <h3>Session Details</h3>
+                <div class="info-row">
+                    <span class="info-label">Auth Method</span>
+                    <span class="info-value">Password + TOTP</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Claims</span>
+                    <span class="info-value badge badge-info">amr: mfa</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-actions">
+        <form asp-page="/Account/Logout" method="post">
+            <button type="submit" class="btn btn-secondary">
+                Sign Out
+            </button>
+        </form>
+    </div>
+</div>
