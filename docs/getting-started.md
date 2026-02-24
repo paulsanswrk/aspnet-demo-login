@@ -104,3 +104,19 @@ dotnet ef database update
 | `Microsoft.AspNetCore.Identity.EntityFrameworkCore` | Identity + EF Core integration |
 | `Microsoft.EntityFrameworkCore.Design` | EF Core tooling (migrations) |
 | `QRCoder` | QR code generation for authenticator setup |
+
+---
+
+## Deployment
+
+### Publishing
+
+```bash
+~/.dotnet/dotnet publish -c Release -o ./publish
+```
+
+### Restarting the Service
+
+```bash
+sudo systemctl restart identity-portal
+```

@@ -45,3 +45,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const input = document.querySelector('.code-input');
+        const form = document.querySelector('.verify-form');
+
+        if (input && form) {
+            input.addEventListener('input', function() {
+                const value = this.value.replace(/\s+/g, '').replace(/-/g, '');
+                if (value.length === 6) {
+                    form.submit();
+                }
+            });
+        }
+    });
+</script>
