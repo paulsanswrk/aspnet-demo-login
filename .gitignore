@@ -37,3 +37,4 @@ Thumbs.db
 ## Secrets / Environment config
 appsettings.json
 appsettings.*.json
+!appsettings.Example.json
