@@ -112,11 +112,11 @@ dotnet ef database update
 ### Publishing
 
 ```bash
+# Build the release
 ~/.dotnet/dotnet publish -c Release -o ./publish
-```
 
-### Restarting the Service
-
-```bash
-sudo systemctl restart identity-portal
+# Deploy to service directory
+sudo systemctl stop identity-portal
+sudo cp -r ./publish/* /var/www/IdentityPortal/
+sudo systemctl start identity-portal
 ```
